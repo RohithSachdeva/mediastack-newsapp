@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 import Header from "./Header";
+import NavLinks from "./components/NavLinks";
 
 export const metadata: Metadata = {
   title: "NewsFlash",
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Header />
+
       <body>{children}</body>
     </html>
   );
