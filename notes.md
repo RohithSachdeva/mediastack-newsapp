@@ -3,9 +3,9 @@
 ## Tasks to be completed
 
 - [] Decide list of components/features for application
-- [] Header
+- [x] Header
   - [] Routing
-  - [] Search Bar
+  - [x] Search Bar
   - []
 - [ ]
 - [ ]

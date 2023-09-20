@@ -1,6 +1,6 @@
 "use client";
 
-import { categories } from "../../../helpers";
+import { categories } from "../../../utils/helpers";
 import { usePathname } from "next/navigation";
 import Navlink from "./Navlink";
 
