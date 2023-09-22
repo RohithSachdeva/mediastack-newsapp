@@ -1,14 +1,15 @@
+import fetchNews from "../../utils/fetchNews";
 import { categories } from "../../utils/helpers";
-
 import Image from "next/image";
 
 async function Homepage() {
-  // const news = await fetchNews(categories.join(","));
-
+  console.log(categories.join(","));
+  const news: NewsResponse = await fetchNews(categories.join(","));
+  console.log(news);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Hello
-    </main>
+    <div>
+      <h1>Homepage</h1>
+    </div>
   );
 }
 

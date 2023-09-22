@@ -1,4 +1,6 @@
 import { gql } from "graphql-request";
+import sortNewsByImage from "./sortNewsByImage";
+import { categories } from "./helpers";
 
 const fetchNews = async (
   category?: Category | string,
@@ -6,7 +8,11 @@ const fetchNews = async (
   isDynamic?: boolean
 ) => {
   const query = gql`
-    query MyQuery($access_key: String!, $category: String!, $keywords: String) {
+    query MyQuery(
+      $access_key: String!
+      $categories: String!
+      $keywords: String
+    ) {
       myQuery(
         access_key: $access_key
         categories: $categories
@@ -17,9 +23,9 @@ const fetchNews = async (
         data {
           author
           category
+          image
           description
           country
-          image
           language
           published_at
           source
@@ -37,7 +43,7 @@ const fetchNews = async (
   `;
 
   const res = await fetch(
-    `https://yicheng.stepzen.net/api/loitering-hedgehog/__graphql`,
+    "https://yicheng.stepzen.net/api/loitering-hedgehog/__graphql",
     {
       method: "POST",
       cache: isDynamic ? "no-cache" : "default",
@@ -56,6 +62,12 @@ const fetchNews = async (
       }),
     }
   );
-  console.log("Loading", category, keywords);
+
+  console.log(category, keywords);
   const newsResponse = await res.json();
+  console.log(newsResponse);
+  const news = sortNewsByImage(newsResponse.data.myQuery);
+  return news;
 };
+
+export default fetchNews;

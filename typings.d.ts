@@ -18,15 +18,15 @@ type Pagination = {
   total: Int;
 };
 
-type NewsResposne = {
-  pagination: Pagination;
+type NewsResponse = {
   data: Article[];
+  pagination: Pagination;
 };
 
 type Category =
   | "business"
   | "entertainment"
-  | "General"
+  | "general"
   | "health"
   | "science"
   | "sports"
