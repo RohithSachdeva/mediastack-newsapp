@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-
+import Providers from "./components/Providers";
 import Header from "./Header";
 import NavLinks from "./components/NavLinks";
 
@@ -18,10 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className="bg-gray-100 dark:bg-zinc-900 transition-all duration-700">
-        <Header />
-        <div className="max-w-6xl mx-auto">{children}</div>
-      </body>
+      <Providers>
+        <body className="bg-gray-100 dark:bg-zinc-900 transition-all duration-700">
+          <Header />
+          <div className="max-w-6xl mx-auto">{children}</div>
+        </body>
+      </Providers>
     </html>
   );
 }
