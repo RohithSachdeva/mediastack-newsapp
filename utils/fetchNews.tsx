@@ -63,9 +63,7 @@ const fetchNews = async (
     }
   );
 
-  console.log(category, keywords);
   const newsResponse = await res.json();
-  console.log(newsResponse);
   const news = sortNewsByImage(newsResponse.data.myQuery);
   return news;
 };

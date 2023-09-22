@@ -1,14 +1,15 @@
 import fetchNews from "../../utils/fetchNews";
 import { categories } from "../../utils/helpers";
-import Image from "next/image";
+import NewsList from "./components/NewsList";
+import response from "../../utils/response.json";
 
 async function Homepage() {
-  console.log(categories.join(","));
-  const news: NewsResponse = await fetchNews(categories.join(","));
-  console.log(news);
+  const news: NewsResponse =
+    (await fetchNews(categories.join(","))) || response;
+
   return (
     <div>
-      <h1>Homepage</h1>
+      <NewsList news={news} />
     </div>
   );
 }
