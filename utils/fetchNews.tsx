@@ -69,3 +69,9 @@ const fetchNews = async (
 };
 
 export default fetchNews;
+
+export async function generateStaticParams() {
+  return categories.map((category) => ({
+    category: category, //Prebuilds category page sections.
+  }));
+}
