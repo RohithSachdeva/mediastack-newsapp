@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
+import ReadMoreButton from "./ReadMoreButton";
 
 type Props = {
   article: Article;
@@ -26,7 +27,7 @@ function Article({ article }: Props) {
             <p>{article.published_at}</p>
           </footer>
         </div>
-        {/* <button></button> */}
+        <ReadMoreButton article={article} />
       </div>
     </article>
   );
